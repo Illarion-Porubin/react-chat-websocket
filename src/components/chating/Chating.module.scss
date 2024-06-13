@@ -1,0 +1,56 @@
+.container{
+    display: block;
+    width: 100%;
+    height: 74dvh;
+    overflow-y: scroll;
+}
+
+.chats {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.chats.recipient{
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.chats.sendler {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.status{
+    position: fixed;
+    font-size: 12px;
+    font-style: italic;
+    bottom: 50px;
+}
+
+
+.message{
+    padding: 10px;
+    min-width: 300px;
+    min-height: 20px;
+    border: 1px solid #333;
+    border-radius: 12px;
+}
+
+.message:nth-child(2n+1){
+    margin-left: 70%;
+}
+
+.sendler{
+    .message{
+        background-color: #d1ffda;
+    }
+}
+
+.recipient{
+    .message{
+        background-color: #ffd1d1;
+    }
+}

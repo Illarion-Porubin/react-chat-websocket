@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Socket } from "socket.io-client";
-import s from "./styles.module.css";
 
 interface Props {
   socket: Socket;
@@ -13,9 +12,9 @@ export const Home: React.FC<Props> = ({ socket }) => {
 
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(true);
     localStorage.setItem("user", user);
-    return navigate("/chat");
+    socket.emit('newUser', {user, socketID: socket.id})
+    navigate("/chat");
   };
 
   return (

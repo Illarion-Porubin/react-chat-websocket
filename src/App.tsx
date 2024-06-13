@@ -4,17 +4,12 @@ import { Home } from "./pages/home/Home";
 import { Chat } from "./pages/chat/Chat";
 
 
-const socket = io("http://localhost:5000");
 
-setInterval(() => {
-  const start = Date.now();
+const socket = io("http://localhost:5000", {
+  withCredentials: true,
+});
 
-  socket.emit("ping", () => {
-    const duration = Date.now() - start;
-    console.log(duration);
-  });
-}, 1000);
-
+  
 function App() {
 
   return (
